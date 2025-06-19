@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap");
 @import "tailwindcss";
-
-:root {
+@theme {
   --font-inter: "Inter", sans-serif;
   --font-unbounded: "Unbounded", sans-serif;
+}
 
+:root {
   font-family: var(--font-inter), system-ui, Avenir, Helvetica, Arial,
     sans-serif;
 
@@ -17,6 +18,4 @@
 body {
   margin: 0;
   padding: 0;
-  min-width: 100vw;
-  min-height: 100vh;
 }
