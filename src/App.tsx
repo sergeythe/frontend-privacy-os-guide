@@ -6,6 +6,8 @@ import HomePage from "@/pages/HomePage";
 import TestPage from "@/pages/TestPage";
 import { AsideTest } from "@/components/AsideTest";
 import { Header } from "@/components/Header";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
 
 const queryClient = new QueryClient();
 
@@ -16,18 +18,20 @@ function App() {
      selection:text-green-500 selection:bg-black"
     >
       <QueryClientProvider client={queryClient}>
-        <Header />
-        <div className="flex justify-between">
-          <AsideTest />
-          <main className="container mx-auto bg-sky-200 border-b-6 border-sky-300 my-6 p-6 shadow">
-            <Routes>
-              <Route path="*" element={<NotFound />} />
-              <Route index path="/" element={<HomePage />} />
-              <Route path="/test" element={<TestPage />} />
-              <Route path="/articles/:slug" element={<ArticlePage />} />
-            </Routes>
-          </main>
-        </div>
+        <Provider store={store}>
+          <Header />
+          <div className="flex justify-between">
+            <AsideTest />
+            <main className="container mx-auto bg-sky-200 border-b-6 border-sky-300 my-6 p-6 shadow">
+              <Routes>
+                <Route path="*" element={<NotFound />} />
+                <Route index path="/" element={<HomePage />} />
+                <Route path="/test" element={<TestPage />} />
+                <Route path="/articles/:slug" element={<ArticlePage />} />
+              </Routes>
+            </main>
+          </div>
+        </Provider>
       </QueryClientProvider>
     </div>
   );
