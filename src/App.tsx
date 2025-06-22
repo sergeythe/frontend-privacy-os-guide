@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router";
+import ArticlePage from "@/pages/ArticlePage";
+import NotFound from "@/pages/NotFound";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div
+      className="min-h-screen w-screen bg-sky-600 flex flex-col place-content-stretch
+     selection:text-green-500 selection:bg-black"
+    >
+      <QueryClientProvider client={queryClient}>
+        <div className="flex justify-between">
+          <main className="container mx-auto bg-sky-200 border-b-6 border-sky-300 my-6 p-6 shadow">
+            <Routes>
+              <Route path="*" element={<NotFound />} />
+              <Route path="/articles/:slug" element={<ArticlePage />} />
+            </Routes>
+          </main>
+        </div>
+      </QueryClientProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;
