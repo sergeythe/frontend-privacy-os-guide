@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HomePage from "@/pages/HomePage";
 import TestPage from "@/pages/TestPage";
 import { AsideTest } from "@/components/AsideTest";
+import { Header } from "@/components/Header";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ function App() {
      selection:text-green-500 selection:bg-black"
     >
       <QueryClientProvider client={queryClient}>
+        <Header />
         <div className="flex justify-between">
           <AsideTest />
           <main className="container mx-auto bg-sky-200 border-b-6 border-sky-300 my-6 p-6 shadow">
