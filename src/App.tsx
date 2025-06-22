@@ -2,7 +2,8 @@ import { Route, Routes } from "react-router";
 import ArticlePage from "@/pages/ArticlePage";
 import NotFound from "@/pages/NotFound";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import HomePage from "./pages/HomePage";
+import HomePage from "@/pages/HomePage";
+import TestPage from "@/pages/TestPage";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App() {
             <Routes>
               <Route path="*" element={<NotFound />} />
               <Route index path="/" element={<HomePage />} />
+              <Route path="/test" element={<TestPage />} />
               <Route path="/articles/:slug" element={<ArticlePage />} />
             </Routes>
           </main>
