@@ -1,6 +1,8 @@
+import { ButtonOS } from "@/components/ButtonOS";
 import type { OS } from "@/data/types/os";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { Loader } from "@/components/Loader";
 import screenshot from "@/assets/images/screenshot.png";
 import { BASE_URL } from "@/data/config/server";
 
@@ -50,7 +52,17 @@ const HomePage = () => {
       <h2 className="text-xl font-semibold font-unbounded">
         OS Overviews and Instructions:
       </h2>
-      {status}
+      {(status === "success" && (
+        <nav className="mt-10 flex w-full items-stretch flex-wrap gap-4">
+          {data.map((os, index) => (
+            <ButtonOS os={os} key={index} />
+          ))}
+        </nav>
+      )) ||
+        (status === "error" && (
+          <span className="block m-4 font-semibold">Fetch data error</span>
+        )) ||
+        (status === "pending" && <Loader />)}
     </div>
   );
 };
