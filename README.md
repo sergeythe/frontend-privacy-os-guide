@@ -15,8 +15,8 @@
 
 ### Mobile
 
-<img src="screenshots/Screenshot_mobile.png" alt="Mobile qubes page" width="45%"/>
-<img src="screenshots/Screenshot_mobile_test.png" alt="Mobile test page" width="45%"/>
+<img src="screenshots/Screenshot_mobile.png" alt="Mobile qubes page" width="40%"/>
+<img src="screenshots/Screenshot_mobile_test.png" alt="Mobile test page" width="40%"/>
 
 ---
 
